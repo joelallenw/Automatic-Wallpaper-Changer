@@ -2,9 +2,10 @@
 import requests
 import ctypes
 import os
+import time
 
 #  this is my access key and the url for unsplash api
-access_key = "Your speacial access key will go here!"
+access_key = "This is where your super secret key would go"
 url = f"https://api.unsplash.com/photos/random?client_id={access_key}&orientation=landscape" #  Gets the photo and only selects landscape
 
 #  gets the image url and assigns it as the variable 'response'
@@ -28,6 +29,8 @@ def set_wallpaper():
     "downloaded_wallpapers", "wallpaper.jpg"), 0)}  #  This calls the ctype mod so we can use windows commands to set the wallpaper
 
 if __name__ == "__main__": #  This verifies that this program is running on this local machine
-    download_wallpaper(url) # This runs the download function
-    set_wallpaper() #  This runs the set wallpaper function
+    while True:
+        download_wallpaper(url) # This runs the download function
+        set_wallpaper() #  This runs the set wallpaper function
+        time.sleep(3600) #  Sets a delay in seconds for 1 hour
 
